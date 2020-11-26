@@ -122,7 +122,7 @@ class MainActivity : AppCompatActivity() {
                         .pow(2.0).toString()
                     mainactivity.finalResult.text = res
                     current = res
-                    saveToHistory(finalExpression, finalresult)
+                    saveToHistory(finalExpression, res.toDouble())
                 } else {
 
                     Toast.makeText(this, "Enter A Number First", Toast.LENGTH_SHORT).show()

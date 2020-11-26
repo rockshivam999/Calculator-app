@@ -15,7 +15,7 @@ class historyView : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         histActvity=DataBindingUtil.setContentView(this,R.layout.activity_history_view)
-        histActvity.historyRecycler.layoutManager=LinearLayoutManager(this,LinearLayoutManager.VERTICAL,true)
+        histActvity.historyRecycler.layoutManager=LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
        val option:FirebaseRecyclerOptions<HistObj> = FirebaseRecyclerOptions.Builder<HistObj>().setQuery(
            FirebaseDatabase.getInstance().reference.child("CalcHist").orderByChild("dateToOrder"),HistObj::class.java).build()
         adapter= HistRecyclerAdapter(option)
