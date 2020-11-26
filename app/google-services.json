@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "617743167199",
+    "firebase_url": "https://calculator-history-46024.firebaseio.com",
+    "project_id": "calculator-history-46024",
+    "storage_bucket": "calculator-history-46024.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:617743167199:android:a82ec49ebdf2b4bba1436a",
+        "android_client_info": {
+          "package_name": "com.AptCoder.calculator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "617743167199-vo9egin78m47mk2k9d55s9g23tgpr13f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzvx57RCwu9-2-rjxub5xqzU_xoIVVi88"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "617743167199-vo9egin78m47mk2k9d55s9g23tgpr13f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:617743167199:android:53767df43e07c404a1436a",
+        "android_client_info": {
+          "package_name": "com.aptcoder.calculator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "617743167199-vo9egin78m47mk2k9d55s9g23tgpr13f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzvx57RCwu9-2-rjxub5xqzU_xoIVVi88"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "617743167199-vo9egin78m47mk2k9d55s9g23tgpr13f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

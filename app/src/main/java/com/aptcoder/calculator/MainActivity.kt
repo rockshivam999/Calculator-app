@@ -6,7 +6,9 @@ import android.view.View
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.aptcoder.calculator.databinding.ActivityMainBinding
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 import kotlin.math.pow
 
 
@@ -15,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     var current: String = ""
     var finalExpression: String = ""
     var operator: String = ""
-    var num1:String=""
+    var num1: String = ""
     private lateinit var mainactivity: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -117,8 +119,9 @@ class MainActivity : AppCompatActivity() {
                     mainactivity.finalexpression.text = finalExpression
                     var res = current.toDouble()
                         .pow(2.0).toString()
-                    mainactivity.finalResult.text=res
-                    current=res
+                    mainactivity.finalResult.text = res
+                    current = res
+                    saveToHistory(finalExpression, finalresult)
                 } else {
 
                     Toast.makeText(this, "Enter A Number First", Toast.LENGTH_SHORT).show()
@@ -143,60 +146,60 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun evaluate( operator: String) {
-        if(num1.isEmpty() || current.isEmpty()){
+    private fun evaluate(operator: String) {
+        if (num1.isEmpty() || current.isEmpty()) {
             Toast.makeText(this, "Please clear and Try again", Toast.LENGTH_SHORT).show()
 
-        }else {
+        } else {
             try {
-                var res=0.0
+                var res = 0.0
                 when (operator) {
 
                     "+" -> {
-                       res =num1.toDouble()+current.toDouble()
-                        finalresult=res
-                        mainactivity.finalResult.text=finalresult.toString()
+                        res = num1.toDouble() + current.toDouble()
+                        finalresult = res
+                        mainactivity.finalResult.text = finalresult.toString()
 
-                        mainactivity.finalexpression.text=finalExpression
+                        mainactivity.finalexpression.text = finalExpression
 
-                        saveToHistory(finalExpression,finalresult)
+                        saveToHistory(finalExpression, finalresult)
 
                     }
-                    "x"->{
-                         res=num1.toDouble()*current.toDouble()
-                        finalresult=res
-                        mainactivity.finalResult.text=finalresult.toString()
+                    "x" -> {
+                        res = num1.toDouble() * current.toDouble()
+                        finalresult = res
+                        mainactivity.finalResult.text = finalresult.toString()
 
-                        mainactivity.finalexpression.text=finalExpression
-                        saveToHistory(finalExpression,finalresult)
+                        mainactivity.finalexpression.text = finalExpression
+                        saveToHistory(finalExpression, finalresult)
                     }
-                    "-"->{
-                         res=num1.toDouble()-current.toDouble()
-                        finalresult=res
-                        mainactivity.finalResult.text=finalresult.toString()
+                    "-" -> {
+                        res = num1.toDouble() - current.toDouble()
+                        finalresult = res
+                        mainactivity.finalResult.text = finalresult.toString()
 
-                        mainactivity.finalexpression.text=finalExpression
-                        saveToHistory(finalExpression,finalresult)
+                        mainactivity.finalexpression.text = finalExpression
+                        saveToHistory(finalExpression, finalresult)
                     }
-                    "%"->{
-                        res=num1.toDouble()%current.toDouble()
-                        finalresult=res
-                        mainactivity.finalResult.text=finalresult.toString()
+                    "%" -> {
+                        res = num1.toDouble() % current.toDouble()
+                        finalresult = res
+                        mainactivity.finalResult.text = finalresult.toString()
 
-                        mainactivity.finalexpression.text=finalExpression
-                        saveToHistory(finalExpression,finalresult)
+                        mainactivity.finalexpression.text = finalExpression
+                        saveToHistory(finalExpression, finalresult)
                     }
-                    "/"->{
-                        res=num1.toDouble()/current.toDouble()
-                        finalresult=res
-                        mainactivity.finalResult.text=finalresult.toString()
+                    "/" -> {
+                        res = num1.toDouble() / current.toDouble()
+                        finalresult = res
+                        mainactivity.finalResult.text = finalresult.toString()
 
-                        mainactivity.finalexpression.text=finalExpression
-                        saveToHistory(finalExpression,finalresult)
+                        mainactivity.finalexpression.text = finalExpression
+                        saveToHistory(finalExpression, finalresult)
                     }
                 }
-                current=res.toString()
-            }catch (e:Exception){
+                current = res.toString()
+            } catch (e: Exception) {
                 Toast.makeText(this, "Invalid Input", Toast.LENGTH_SHORT).show()
 
             }
@@ -206,6 +209,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun saveToHistory(finalExpression: String, finalresult: Double) {
+        val histObj=HistObj(finalExpression,finalresult.toString(),Date().time)
+        val ref = FirebaseDatabase.getInstance().reference.child("CalcHist")
+        val key = ref.push().key!!
+        ref.child(key).setValue(histObj)
+
+
 
     }
 
@@ -214,7 +223,7 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "Enter A Number First", Toast.LENGTH_SHORT).show()
         } else {
             finalExpression = current + operator
-            num1=current
+            num1 = current
             current = ""
             mainactivity.userInput.text = current
             mainactivity.finalexpression.text = finalExpression
