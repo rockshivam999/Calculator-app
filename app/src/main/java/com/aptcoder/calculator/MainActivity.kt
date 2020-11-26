@@ -1,5 +1,6 @@
 package com.aptcoder.calculator
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -134,6 +135,9 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+        mainactivity.history.setOnClickListener(){
+            startActivity(Intent(this,historyView::class.java))
+        }
         mainactivity.equals.setOnClickListener() {
             current = mainactivity.userInput.text.trim().toString()
             finalExpression += current
