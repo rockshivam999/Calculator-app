@@ -6,8 +6,12 @@
 <ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_centerHorizontal="true"
         android:layout_height="match_parent"
 
         android:background="@drawable/backgroung_home_page"
@@ -60,250 +64,387 @@
             android:layout_marginBottom="10dp"
             android:textAlignment="textEnd"
             android:textSize="34dp" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:visibility="visible"
+            android:id="@+id/inputPannel"
+            android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
             android:layout_marginBottom="2dp"
             android:orientation="horizontal">
 
             <Button
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:background="@drawable/button_click"
                 android:text="X&#xB2;"
                 android:layout_marginRight="2dp"
                 android:id="@+id/square"
                 android:textAlignment="center"
                 android:textColor="@color/colorAccent"
-                android:textSize="40dp" />
+                android:textSize="30dp" />
 
             <Button
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
                 android:id="@+id/modulo"
                 android:background="@drawable/button_click"
             android:text="%"
             android:textAlignment="center"
             android:textColor="@color/colorAccent"
             android:layout_marginRight="2dp"
-            android:textSize="40dp" />
+            android:textSize="30dp" />
             <Button
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
                 android:id="@+id/devide"
                 android:background="@drawable/button_click"
             android:text="÷"
             android:textAlignment="center"
             android:textColor="@color/colorAccent"
             android:layout_marginRight="2dp"
-            android:textSize="40dp" />
+            android:textSize="30dp" />
 
             <Button
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:id="@+id/clear"
                 android:layout_marginRight="2dp"
                 android:background="@drawable/button_click"
                 android:text="C"
                 android:textAlignment="center"
                 android:textColor="@color/colorAccent"
-                android:textSize="40dp" />
+                android:textSize="30dp" />
         </LinearLayout>
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginBottom="2dp"
             android:orientation="horizontal">
 
             <Button
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:background="@drawable/button_click"
                 android:text="7"
                 android:id="@+id/seven"
                 android:layout_marginRight="2dp"
                 android:textAlignment="center"
                 android:textColor="@color/colorAccent"
-                android:textSize="40dp" />
+                android:textSize="30dp" />
 
             <Button
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:background="@drawable/button_click"
                 android:text="8"
                 android:id="@+id/eight"
                 android:textAlignment="center"
                 android:textColor="@color/colorAccent"
                 android:layout_marginRight="2dp"
-                android:textSize="40dp" />
+                android:textSize="30dp" />
             <Button
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:background="@drawable/button_click"
                 android:text="9"
                 android:id="@+id/nine"
                 android:textAlignment="center"
                 android:textColor="@color/colorAccent"
                 android:layout_marginRight="2dp"
-                android:textSize="40dp" />
+                android:textSize="30dp" />
             <Button
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:background="@drawable/button_click"
                 android:text="-"
                 android:id="@+id/subtract"
                 android:textAlignment="center"
                 android:textColor="@color/colorAccent"
                 android:layout_marginRight="2dp"
-                android:textSize="40dp" />
+                android:textSize="30dp" />
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/four"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginRight="2dp"
+                    android:background="@drawable/button_click"
+                    android:text="4"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="30dp" />
+
+                <Button
+                    android:id="@+id/five"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginRight="2dp"
+                    android:background="@drawable/button_click"
+                    android:text="5"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="30dp" />
+
+                <Button
+                    android:id="@+id/six"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginRight="2dp"
+                    android:background="@drawable/button_click"
+                    android:text="6"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="30dp" />
+
+                <Button
+                    android:id="@+id/add"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginRight="2dp"
+                    android:background="@drawable/button_click"
+                    android:text="+"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="30dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
             android:layout_height="wrap_content"
             android:layout_marginBottom="2dp"
             android:orientation="horizontal">
 
             <Button
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="@drawable/button_click"
-                android:text="4"
-                android:id="@+id/four"
-                android:layout_marginRight="2dp"
-                android:textAlignment="center"
-                android:textColor="@color/colorAccent"
-                android:textSize="40dp" />
-
-            <Button
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="@drawable/button_click"
-                android:text="5"
-                android:textAlignment="center"
-                android:id="@+id/five"
-                android:textColor="@color/colorAccent"
-                android:layout_marginRight="2dp"
-                android:textSize="40dp" />
-            <Button
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="@drawable/button_click"
-                android:text="6"
-                android:id="@+id/six"
-                android:textAlignment="center"
-                android:textColor="@color/colorAccent"
-                android:layout_marginRight="2dp"
-                android:textSize="40dp" />
-            <Button
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="@drawable/button_click"
-                android:text="+"
-                android:id="@+id/add"
-                android:textAlignment="center"
-                android:textColor="@color/colorAccent"
-                android:layout_marginRight="2dp"
-                android:textSize="40dp" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="2dp"
-            android:orientation="horizontal">
-
-            <Button
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:background="@drawable/button_click"
                 android:text="1"
                 android:id="@+id/one"
                 android:layout_marginRight="2dp"
                 android:textAlignment="center"
                 android:textColor="@color/colorAccent"
-                android:textSize="40dp" />
+                android:textSize="30dp" />
 
             <Button
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:background="@drawable/button_click"
                 android:text="2"
                 android:id="@+id/two"
                 android:textAlignment="center"
                 android:textColor="@color/colorAccent"
                 android:layout_marginRight="2dp"
-                android:textSize="40dp" />
+                android:textSize="30dp" />
             <Button
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:background="@drawable/button_click"
                 android:text="3"
                 android:id="@+id/three"
                 android:textAlignment="center"
                 android:textColor="@color/colorAccent"
                 android:layout_marginRight="2dp"
-                android:textSize="40dp" />
+                android:textSize="30dp" />
 
             <Button
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_marginRight="2dp"
                 android:background="@drawable/button_click"
                 android:text="X"
                 android:id="@+id/multiply"
                 android:textAlignment="center"
                 android:textColor="@color/colorAccent"
-                android:textSize="40dp" />
+                android:textSize="28dp" />
         </LinearLayout>
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <Button
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:background="@drawable/button_click"
                 android:text="hist"
                 android:id="@+id/history"
                 android:layout_marginRight="2dp"
                 android:textAlignment="center"
                 android:textColor="@color/colorAccent"
-                android:textSize="40dp" />
+                android:textSize="25dp" />
 
             <Button
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:background="@drawable/button_click"
                 android:text="0"
                 android:id="@+id/zero"
                 android:textAlignment="center"
                 android:textColor="@color/colorAccent"
                 android:layout_marginRight="2dp"
-                android:textSize="40dp" />
+                android:textSize="25dp" />
             <Button
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:background="@drawable/button_click"
                 android:text="."
                 android:id="@+id/dot"
                 android:textAlignment="center"
                 android:textColor="@color/colorAccent"
+                android:layout_marginTop="0dp"
                 android:layout_marginRight="2dp"
-                android:textSize="40dp" />
+                android:textSize="25dp" />
+
             <Button
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:id="@+id/equals"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginRight="2dp"
                 android:background="@drawable/button_click"
                 android:text="="
-                android:id="@+id/equals"
                 android:textAlignment="center"
                 android:textColor="@color/colorAccent"
-                android:layout_marginRight="2dp"
-                android:textSize="40dp" />
+                android:textSize="20dp" />
+        </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/button_click"
+                    android:text="sin(x)"
+                    android:id="@+id/sin"
+                    android:layout_marginRight="2dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="20dp" />
+
+                <Button
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/button_click"
+                    android:text="cos(x)"
+                    android:id="@+id/cos"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorAccent"
+                    android:layout_marginRight="2dp"
+                    android:textSize="20dp" />
+                <Button
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/button_click"
+                    android:text="ln(x)"
+                    android:id="@+id/ln"
+                    android:layout_marginTop="2dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorAccent"
+                    android:layout_marginRight="2dp"
+                    android:textSize="25dp" />
+                <Button
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/button_click"
+                    android:text="log(x)"
+                    android:id="@+id/log"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorAccent"
+                    android:layout_marginRight="2dp"
+                    android:textSize="20dp" />
+            </LinearLayout>
+
+
+        </LinearLayout><LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/button_click"
+                    android:text="exp"
+                    android:id="@+id/exp"
+                    android:layout_marginRight="2dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="20dp" />
+
+                <Button
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/button_click"
+                    android:text="sqrt"
+                    android:id="@+id/sqrt"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorAccent"
+                    android:layout_marginRight="2dp"
+                    android:textSize="20dp" />
+                <Button
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/button_click"
+                    android:text="abs(x)"
+                    android:id="@+id/abs"
+                    android:layout_marginTop="2dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorAccent"
+                    android:layout_marginRight="2dp"
+                    android:textSize="20dp" />
+
+                <Button
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginRight="2dp"
+                    android:background="@drawable/button_click"
+                    android:id="@+id/e"
+                    android:text="e"
+                    android:textAllCaps="false"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="20dp" />
+            </LinearLayout>
+
+
         </LinearLayout>
 
 
+
     </LinearLayout>
+    </RelativeLayout>
 </ScrollView>
 </layout>

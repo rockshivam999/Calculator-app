@@ -10,7 +10,7 @@ import com.aptcoder.calculator.databinding.ActivityMainBinding
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
-import kotlin.math.pow
+import kotlin.math.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
             DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
 
 
-        mainactivity.one.setOnClickListener() {
+               mainactivity.one.setOnClickListener() {
             current += "1"
             mainactivity.userInput.text = current
 
@@ -76,6 +76,11 @@ class MainActivity : AppCompatActivity() {
             mainactivity.userInput.text = current
 
         }
+        mainactivity.e.setOnClickListener() {
+            current += Math.E.toString()
+            mainactivity.userInput.text = current
+
+        }
         mainactivity.dot.setOnClickListener() {
             current += "."
             mainactivity.userInput.text = current
@@ -112,6 +117,10 @@ class MainActivity : AppCompatActivity() {
             operator = "%"
             showexpression()
         }
+        mainactivity.exp.setOnClickListener() {
+            operator = "exp"
+            showexpression()
+        }
         mainactivity.square.setOnClickListener() {
             try {
                 if (mainactivity.userInput.text.isNotEmpty()) {
@@ -120,6 +129,165 @@ class MainActivity : AppCompatActivity() {
                     mainactivity.finalexpression.text = finalExpression
                     var res = current.toDouble()
                         .pow(2.0).toString()
+                    mainactivity.finalResult.text = res
+                    current = res
+                    saveToHistory(finalExpression, res.toDouble())
+                } else {
+
+                    Toast.makeText(this, "Enter A Number First", Toast.LENGTH_SHORT).show()
+
+                }
+            } catch (e: Exception) {
+                mainactivity.finalResult.text = "INVALID INPUT"
+            }
+
+        }
+        mainactivity.cos.setOnClickListener() {
+            try {
+                if (mainactivity.userInput.text.isNotEmpty()) {
+                    operator = "cos"
+                    finalExpression = "cos($current)"
+                    mainactivity.finalexpression.text = finalExpression
+
+                 var sol=   cos(current.toDouble()* PI/180.0)
+                    if(sol<0.00000000001)sol=0.0
+
+                    var res = sol.toString()
+
+
+                    mainactivity.finalResult.text = res
+                    current = res
+                    saveToHistory(finalExpression, res.toDouble())
+                } else {
+
+                    Toast.makeText(this, "Enter A Number First", Toast.LENGTH_SHORT).show()
+
+                }
+            } catch (e: Exception) {
+                mainactivity.finalResult.text = "INVALID INPUT"
+            }
+
+        }
+
+        mainactivity.sin.setOnClickListener() {
+            try {
+                if (mainactivity.userInput.text.isNotEmpty()) {
+                    operator = "sin"
+                    finalExpression = "sin($current)"
+                    mainactivity.finalexpression.text = finalExpression
+
+                    var sol=   sin(current.toDouble()* PI/180.0)
+                    if(sol<0.00000000001)sol=0.0
+
+                    var res = sol.toString()
+
+
+                    mainactivity.finalResult.text = res
+                    current = res
+                    saveToHistory(finalExpression, res.toDouble())
+                } else {
+
+                    Toast.makeText(this, "Enter A Number First", Toast.LENGTH_SHORT).show()
+
+                }
+            } catch (e: Exception) {
+                mainactivity.finalResult.text = "INVALID INPUT"
+            }
+
+        }
+        mainactivity.ln.setOnClickListener() {
+            try {
+                if (mainactivity.userInput.text.isNotEmpty()) {
+                    operator = "ln"
+                    finalExpression = "ln($current)"
+                    mainactivity.finalexpression.text = finalExpression
+
+                    var sol=   log(current.toDouble(),Math.E)
+                    if(sol<0.00000000001)sol=0.0
+
+                    var res = sol.toString()
+
+
+                    mainactivity.finalResult.text = res
+                    current = res
+                    saveToHistory(finalExpression, res.toDouble())
+                } else {
+
+                    Toast.makeText(this, "Enter A Number First", Toast.LENGTH_SHORT).show()
+
+                }
+            } catch (e: Exception) {
+                mainactivity.finalResult.text = "INVALID INPUT"
+            }
+
+        }
+        mainactivity.sqrt.setOnClickListener() {
+            try {
+                if (mainactivity.userInput.text.isNotEmpty()) {
+                    operator = "sqrt"
+                    finalExpression = "sqrt($current)"
+                    mainactivity.finalexpression.text = finalExpression
+
+                    var sol=   sqrt(current.toDouble())
+
+
+                    var res = sol.toString()
+
+
+                    mainactivity.finalResult.text = res
+                    current = res
+                    saveToHistory(finalExpression, res.toDouble())
+                } else {
+
+                    Toast.makeText(this, "Enter A Number First", Toast.LENGTH_SHORT).show()
+
+                }
+            } catch (e: Exception) {
+                mainactivity.finalResult.text = "INVALID INPUT"
+            }
+
+        }
+
+        mainactivity.abs.setOnClickListener() {
+            try {
+                if (mainactivity.userInput.text.isNotEmpty()) {
+                    operator = "sqrt"
+                    finalExpression = "sqrt($current)"
+                    mainactivity.finalexpression.text = finalExpression
+
+                    var sol=   abs(current.toDouble())
+
+
+                    var res = sol.toString()
+
+
+                    mainactivity.finalResult.text = res
+                    current = res
+                    saveToHistory(finalExpression, res.toDouble())
+                } else {
+
+                    Toast.makeText(this, "Enter A Number First", Toast.LENGTH_SHORT).show()
+
+                }
+            } catch (e: Exception) {
+                mainactivity.finalResult.text = "INVALID INPUT"
+            }
+
+        }
+
+        mainactivity.log.setOnClickListener() {
+            try {
+                if (mainactivity.userInput.text.isNotEmpty()) {
+                    operator = "log"
+                    finalExpression = "log($current)"
+                    mainactivity.finalexpression.text = finalExpression
+
+                    var sol=   log(current.toDouble(),10.0)
+                    if(sol<0.00000000001)sol=0.0
+
+                    var res = sol.toString()
+
+
                     mainactivity.finalResult.text = res
                     current = res
                     saveToHistory(finalExpression, res.toDouble())
@@ -195,6 +363,15 @@ class MainActivity : AppCompatActivity() {
                     }
                     "/" -> {
                         res = num1.toDouble() / current.toDouble()
+                        finalresult = res
+                        mainactivity.finalResult.text = finalresult.toString()
+
+                        mainactivity.finalexpression.text = finalExpression
+                        saveToHistory(finalExpression, finalresult)
+                    }
+
+                    "exp" -> {
+                        res = num1.toDouble().pow( current.toDouble())
                         finalresult = res
                         mainactivity.finalResult.text = finalresult.toString()
 
